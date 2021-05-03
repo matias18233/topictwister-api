@@ -13,7 +13,7 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
     cadena : {
-      type : 'longtext',
+      type : 'json',
       required : true,
     },
 
