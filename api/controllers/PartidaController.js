@@ -9,7 +9,17 @@ module.exports = {
 
     // Vía POST
     async agregar(req, res) {
+        if (!req.body.cadena) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo cadena', });
+        }
+        const partidaTemp = await Partida.create({
+            cadena: req.body.cadena,
+        }).fetch();
 
+        return res.send({
+            estado: 'success',
+            partida: partidaTemp,
+        });
     },
     
     // Vía POST
