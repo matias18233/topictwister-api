@@ -37,7 +37,7 @@ module.exports = {
         .set({
             cadena: req.body.cadena,
         }).catch(function (err) {
-            return res.send({ status: 'error', mensaje: 'Hubo un problema al modificar la partida', });
+            return res.send({ estado: 'error', mensaje: 'Hubo un problema al modificar la partida', });
         });
 
         return res.send({
@@ -54,7 +54,19 @@ module.exports = {
     
     // Vía GET
     async obtener(req, res) {
-
+        if (!req.params.id) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo id', });
+        }
+        const partidaTemp = await Partida.findOne({
+            id: req.params.id,
+        });
+        if (!partidaTemp) {
+            return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
+        }
+        return res.send({
+            estado: 'success',
+            partida: partidaTemp,
+        });
     },
 
 };

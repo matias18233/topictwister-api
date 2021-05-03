@@ -16,6 +16,7 @@ module.exports.policies = {
   'PartidaController': {
     'agregar': true,
     'editar': true,
+    'obtener': true,
    },
 
 };

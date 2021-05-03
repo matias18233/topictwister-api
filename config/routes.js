@@ -35,11 +35,11 @@ module.exports.routes = {
   //********       GET        *********
   //***********************************
 
-  'GET /api/usuarios/obtener/:usuario_id' : 'UsuarioController.obtener',
+  'GET /api/usuarios/obtener/:id' : 'UsuarioController.obtener',
   'GET /api/usuarios/obtenerListado' : 'UsuarioController.obtenerListado',
-  'GET /api/usuarios/borrar/:usuario_id' : 'UsuarioController.borrar',
+  'GET /api/usuarios/borrar/:id' : 'UsuarioController.borrar',
 
-  'GET /api/partidas/obtener/:partida_id' : 'PartidaController.obtener',
+  'GET /api/partidas/obtener/:id' : 'PartidaController.obtener',
 
   //***********************************
   //********       POST       *********
