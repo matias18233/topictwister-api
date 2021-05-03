@@ -18,13 +18,33 @@ module.exports = {
 
         return res.send({
             estado: 'success',
+            mensaje: 'Agregado con éxito el registro',
             partida: partidaTemp,
         });
     },
     
     // Vía POST
     async editar(req, res) {
+        if (!req.body.id) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo id', });
+        }
+        if (!req.body.cadena) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo cadena', });
+        }
+        const partidaTemp = await Partida.updateOne({
+            id: req.body.id,
+        })
+        .set({
+            cadena: req.body.cadena,
+        }).catch(function (err) {
+            return res.send({ status: 'error', mensaje: 'Hubo un problema al modificar la partida', });
+        });
 
+        return res.send({
+            estado: 'success',
+            mensaje: 'Agregado con éxito el registro',
+            partida: partidaTemp,
+        });
     },
     
     // Vía GET

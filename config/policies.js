@@ -15,6 +15,7 @@ module.exports.policies = {
   // Bypass the `is-logged-in` policy for:
   'PartidaController': {
     'agregar': true,
+    'editar': true,
    },
 
 };
