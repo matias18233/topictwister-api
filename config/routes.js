@@ -14,6 +14,8 @@ module.exports.routes = {
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
 
+  '/': { view: 'pages/homepage' },
+
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
   //  ╩ ╩╩╚═╝╚═╝  ╩╚═╚═╝═╩╝╩╩╚═╚═╝╚═╝ ╩ ╚═╝  └┘   ═╩╝╚═╝╚╩╝╝╚╝╩═╝╚═╝╩ ╩═╩╝╚═╝
@@ -33,17 +35,22 @@ module.exports.routes = {
   //********       GET        *********
   //***********************************
 
-  'GET /api/usuarios/obtener/:usuario_id' : 'Usuario.obtener',
-  'GET /api/usuarios/obtenerListado' : 'Usuario.obtenerListado',
-  'GET /api/usuarios/borrar/:usuario_id' : 'Usuario.borrar',
+  'GET /api/usuarios/obtener/:usuario_id' : 'UsuarioController.obtener',
+  'GET /api/usuarios/obtenerListado' : 'UsuarioController.obtenerListado',
+  'GET /api/usuarios/borrar/:usuario_id' : 'UsuarioController.borrar',
+
+  'GET /api/partidas/obtener/:partida_id' : 'PartidaController.obtener',
 
   //***********************************
   //********       POST       *********
   //***********************************
 
-  'POST /api/usuarios/agregar' : 'Usuario.agregar',
-  'POST /api/usuarios/editar' : 'Usuario.editar',
-  'POST /api/usuarios/login' : 'Usuario.login',
+  'POST /api/usuarios/agregar' : 'UsuarioController.agregar',
+  'POST /api/usuarios/editar' : 'UsuarioController.editar',
+  'POST /api/usuarios/login' : 'UsuarioController.login',
+
+  'POST /api/partidas/agregar' : 'PartidaController.agregar',
+  'POST /api/partidas/editar' : 'PartidaController.editar',
 
   /*
   'GET /api/sectoresProductivos' : 'SectorProductivoController.list',
