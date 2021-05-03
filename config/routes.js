@@ -36,7 +36,7 @@ module.exports.routes = {
   //***********************************
 
   'GET /api/usuarios/obtener/:id' : 'UsuarioController.obtener',
-  'GET /api/usuarios/obtenerListado' : 'UsuarioController.obtenerListado',
+  'GET /api/usuarios/obtenerListado' : 'UsuarioController.obtenerListado', // INPUTS ->  [ ] | OUTPUTS -> [ estado, partidas ]
   'GET /api/usuarios/borrar/:id' : 'UsuarioController.borrar',
 
   'GET /api/partidas/obtener/:id' : 'PartidaController.obtener', // INPUTS ->  [ id* ] | OUTPUTS -> [ estado, partida ]

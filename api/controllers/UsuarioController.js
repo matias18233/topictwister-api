@@ -54,6 +54,13 @@ module.exports = {
     
     // Vía GET
     async obtenerListado(req, res) {
-
+        const usuariosTemp = await Usuario.find({});
+        if (!usuariosTemp) {
+            return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
+        }
+        return res.send({
+            estado: 'success',
+            usuarios: usuariosTemp,
+        });
     }
 };
