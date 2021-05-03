@@ -44,7 +44,30 @@ module.exports = {
     
     // Vía POST
     async login(req, res) {
-
+        if (!req.body.nombre) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo nombre', });
+        }
+        if (!req.body.contrasenia) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo contraseña', });
+        }
+        const usuarioTemp = await Usuario.findOne({
+            nombre: req.body.nombre,
+        });
+        if (!usuarioTemp) {
+            return res.send({ estado: 'error', mensaje: 'El usuario o contraseña no coincide (TEMP: no existe usuario)', });
+        }
+        if ((usuarioTemp.password === req.body.contrasenia) == false) {
+            return res.send({ estado: 'error', mensaje: 'El usuario o contraseña no coincide (TEMP: pass no coincide)', });
+        } else {
+            const usuariosTemp = await Usuario.find({});
+            if (!usuariosTemp) {
+                return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
+            }
+            return res.send({
+                estado: 'success',
+                usuarios: usuariosTemp,
+            });
+        }
     },
     
     // Vía GET

@@ -47,7 +47,7 @@ module.exports.routes = {
 
   'POST /api/usuarios/agregar' : 'UsuarioController.agregar', // INPUTS ->  [ nombre*, contrasenia* ] | OUTPUTS -> [ estado, mensaje, usuario ]
   'POST /api/usuarios/editar' : 'UsuarioController.editar',
-  'POST /api/usuarios/login' : 'UsuarioController.login',
+  'POST /api/usuarios/login' : 'UsuarioController.login', // INPUTS ->  [ nombre*, contrasenia* ] | OUTPUTS -> [ estado, usuarios ]
 
   'POST /api/partidas/agregar' : 'PartidaController.agregar', // INPUTS ->  [cadena* ] | OUTPUTS -> [ estado, mensaje, partida ]
   'POST /api/partidas/editar' : 'PartidaController.editar', // INPUTS ->  [ id*, cadena* ] | OUTPUTS -> [ estado, mensaje, partida ]

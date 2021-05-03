@@ -21,6 +21,7 @@ module.exports.policies = {
    'UsuarioController': {
     'agregar': true,
     'obtenerListado': true,
+    'login': true,
    },
 
 };
