@@ -18,5 +18,8 @@ module.exports.policies = {
     'editar': true,
     'obtener': true,
    },
+   'UsuarioController': {
+    'agregar': true,
+   },
 
 };

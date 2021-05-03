@@ -39,22 +39,17 @@ module.exports.routes = {
   'GET /api/usuarios/obtenerListado' : 'UsuarioController.obtenerListado',
   'GET /api/usuarios/borrar/:id' : 'UsuarioController.borrar',
 
-  'GET /api/partidas/obtener/:id' : 'PartidaController.obtener',
+  'GET /api/partidas/obtener/:id' : 'PartidaController.obtener', // INPUTS ->  [ id* ] | OUTPUTS -> [ estado, partida ]
 
   //***********************************
   //********       POST       *********
   //***********************************
 
-  'POST /api/usuarios/agregar' : 'UsuarioController.agregar',
+  'POST /api/usuarios/agregar' : 'UsuarioController.agregar', // INPUTS ->  [ nombre*, contrasenia* ] | OUTPUTS -> [ estado, mensaje, usuario ]
   'POST /api/usuarios/editar' : 'UsuarioController.editar',
   'POST /api/usuarios/login' : 'UsuarioController.login',
 
-  'POST /api/partidas/agregar' : 'PartidaController.agregar',
-  'POST /api/partidas/editar' : 'PartidaController.editar',
+  'POST /api/partidas/agregar' : 'PartidaController.agregar', // INPUTS ->  [cadena* ] | OUTPUTS -> [ estado, mensaje, partida ]
+  'POST /api/partidas/editar' : 'PartidaController.editar', // INPUTS ->  [ id*, cadena* ] | OUTPUTS -> [ estado, mensaje, partida ]
 
-  /*
-  'GET /api/sectoresProductivos' : 'SectorProductivoController.list',
-  'GET /api/sectoresProductivos/:sectorProductivo_id' : 'SectorProductivoController.get',
-  'GET /api/sectoresProductivos/borrar/:sectorProductivo_id' : 'SectorProductivoController.delete',
-  */
 };

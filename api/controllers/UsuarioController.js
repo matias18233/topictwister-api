@@ -9,7 +9,27 @@ module.exports = {
 
     // Vía POST
     async agregar(req, res) {
-
+        if (!req.body.nombre) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo nombre', });
+        }
+        if (!req.body.contrasenia) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo contraseña', });
+        }
+        const usuarioTemp = await Usuario.findOne({
+            nombre: req.body.nombre,
+        });
+        if (usuarioTemp) {
+            return res.send({ estado: 'error', mensaje: 'Ya existe el nombre cargado', });
+        }
+        const usuario = await Usuario.create({
+            nombre: req.body.nombre,
+            password: req.body.contrasenia,
+        }).fetch();
+        return res.send({
+            estado: 'success',
+            mensaje: 'Agregado con éxito el registro',
+            usuario: usuario,
+        });
     },
     
     // Vía POST
