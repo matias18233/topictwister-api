@@ -43,6 +43,12 @@ module.exports = {
         if (!req.body.contrasenia) {
             return res.send({ estado: 'error', mensaje: 'Falta el campo contraseña', });
         }
+        const resultado = await Usuario.findOne({
+            id: req.params.id,
+        });
+        if (!resultado) {
+            return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
+        }
         const usuarioTemp = await Usuario.updateOne({
             id: req.body.id,
         })

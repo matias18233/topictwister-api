@@ -31,6 +31,12 @@ module.exports = {
         if (!req.body.cadena) {
             return res.send({ estado: 'error', mensaje: 'Falta el campo cadena', });
         }
+        const resultado = await Partida.findOne({
+            id: req.params.id,
+        });
+        if (!resultado) {
+            return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
+        }
         const partidaTemp = await Partida.updateOne({
             id: req.body.id,
         })
