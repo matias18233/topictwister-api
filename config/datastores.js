@@ -49,7 +49,7 @@ module.exports.datastores = {
     *                                                                          *
     ***************************************************************************/
     adapter: 'sails-mysql',
-    url: 'mysql://mcruz_ttwister:u1c@bZ97zA@localhost:3306/mcruz_ttwister',
+    url: 'mysql://mcruz_ttwister:umDesarrollo@localhost:3306/mcruz_ttwister',
 
   },
 
