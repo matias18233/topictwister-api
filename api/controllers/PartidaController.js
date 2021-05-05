@@ -42,7 +42,7 @@ module.exports = {
 
         return res.send({
             estado: 'success',
-            mensaje: 'Agregado con éxito el registro',
+            mensaje: 'Modificado con éxito el registro',
             partida: partidaTemp,
         });
     },

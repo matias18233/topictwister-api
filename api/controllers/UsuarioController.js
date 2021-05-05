@@ -34,7 +34,30 @@ module.exports = {
     
     // Vía POST
     async editar(req, res) {
+        if (!req.body.id) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo id', });
+        }
+        if (!req.body.nombre) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo nombre', });
+        }
+        if (!req.body.contrasenia) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo contraseña', });
+        }
+        const usuarioTemp = await Usuario.updateOne({
+            id: req.body.id,
+        })
+        .set({
+            nombre: req.body.nombre,
+            password: req.body.contrasenia,
+        }).catch(function (err) {
+            return res.send({ estado: 'error', mensaje: 'Hubo un problema al modificar el usuario', });
+        });
 
+        return res.send({
+            estado: 'success',
+            mensaje: 'Modificado con éxito el registro',
+            usuario: usuarioTemp,
+        });
     },
     
     // Vía GET
