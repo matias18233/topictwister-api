@@ -49,6 +49,12 @@ module.exports = {
         if (!resultado) {
             return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
         }
+        const usuarioTemp = await Usuario.findOne({
+            nombre: req.body.nombre,
+        });
+        if (usuarioTemp) {
+            return res.send({ estado: 'error', mensaje: 'Ya existe el nombre cargado', });
+        }
         const usuarioTemp = await Usuario.updateOne({
             id: req.body.id,
         })
