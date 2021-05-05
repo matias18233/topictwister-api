@@ -32,7 +32,7 @@ module.exports = {
             return res.send({ estado: 'error', mensaje: 'Falta el campo cadena', });
         }
         const resultado = await Partida.findOne({
-            id: req.params.id,
+            id: req.body.id,
         });
         if (!resultado) {
             return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
