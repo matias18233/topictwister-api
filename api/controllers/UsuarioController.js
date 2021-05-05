@@ -107,7 +107,19 @@ module.exports = {
     
     // Vía GET
     async obtener(req, res) {
-
+        if (!req.params.id) {
+            return res.send({ estado: 'error', mensaje: 'Falta el campo id', });
+        }
+        const usuarioTemp = await Usuario.findOne({
+            id: req.params.id,
+        });
+        if (!usuarioTemp) {
+            return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
+        }
+        return res.send({
+            estado: 'success',
+            usuario: usuarioTemp,
+        });
     },
     
     // Vía GET
