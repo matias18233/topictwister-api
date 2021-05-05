@@ -22,6 +22,7 @@ module.exports.policies = {
     'agregar': true,
     'obtenerListado': true,
     'login': true,
+    'editar': true,
    },
 
 };
