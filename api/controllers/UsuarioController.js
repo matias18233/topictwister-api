@@ -85,13 +85,13 @@ module.exports = {
         if (!req.body.contrasenia) {
             return res.send({ estado: 'error', mensaje: 'Falta el campo contraseña', });
         }
-        const usuarioTemp = await Usuario.findOne({
+        const actualTemp = await Usuario.findOne({
             nombre: req.body.nombre,
         });
-        if (!usuarioTemp) {
+        if (!actualTemp) {
             return res.send({ estado: 'error', mensaje: 'El usuario o contraseña no coincide (TEMP: no existe usuario)', });
         }
-        if ((usuarioTemp.password === req.body.contrasenia) == false) {
+        if ((actualTemp.password === req.body.contrasenia) == false) {
             return res.send({ estado: 'error', mensaje: 'El usuario o contraseña no coincide (TEMP: pass no coincide)', });
         } else {
             const usuariosTemp = await Usuario.find({});
@@ -100,6 +100,7 @@ module.exports = {
             }
             return res.send({
                 estado: 'success',
+                actual: actualTemp, 
                 usuarios: usuariosTemp,
             });
         }
