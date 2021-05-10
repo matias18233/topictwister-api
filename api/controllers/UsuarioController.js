@@ -89,10 +89,10 @@ module.exports = {
             nombre: req.body.nombre,
         });
         if (!actualTemp) {
-            return res.send({ estado: 'error', mensaje: 'El usuario o contraseña no coincide (TEMP: no existe usuario)', });
+            return res.send({ estado: 'error', mensaje: 'El usuario no coincide', });
         }
         if ((actualTemp.password === req.body.contrasenia) == false) {
-            return res.send({ estado: 'error', mensaje: 'El usuario o contraseña no coincide (TEMP: pass no coincide)', });
+            return res.send({ estado: 'error', mensaje: 'La contraseña no coincide', });
         } else {
             const usuariosTemp = await Usuario.find({});
             if (!usuariosTemp) {
