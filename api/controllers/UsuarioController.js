@@ -16,13 +16,13 @@ module.exports = {
             return res.send({ estado: 'error', mensaje: 'Falta el campo contraseña', });
         }
         const usuarioTemp = await Usuario.findOne({
-            nombre: req.body.nombre,
+            name: req.body.nombre,
         });
         if (usuarioTemp) {
             return res.send({ estado: 'error', mensaje: 'Ya existe el nombre cargado', });
         }
         const usuario = await Usuario.create({
-            nombre: req.body.nombre,
+            name: req.body.nombre,
             password: req.body.contrasenia,
         }).fetch();
         return res.send({
@@ -50,7 +50,7 @@ module.exports = {
             return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
         }
         const usuario = await Usuario.findOne({
-            nombre: req.body.nombre,
+            name: req.body.nombre,
         });
         if (usuario) {
             return res.send({ estado: 'error', mensaje: 'Ya existe el nombre cargado', });
@@ -59,7 +59,7 @@ module.exports = {
             id: req.body.id,
         })
         .set({
-            nombre: req.body.nombre,
+            name: req.body.nombre,
             password: req.body.contrasenia,
         }).catch(function (err) {
             return res.send({ estado: 'error', mensaje: 'Hubo un problema al modificar el usuario', });
@@ -86,7 +86,7 @@ module.exports = {
             return res.send({ estado: 'error', mensaje: 'Falta el campo contraseña', });
         }
         const actualTemp = await Usuario.findOne({
-            nombre: req.body.nombre,
+            name: req.body.nombre,
         });
         if (!actualTemp) {
             return res.send({ estado: 'error', mensaje: 'El usuario no coincide', });
@@ -94,22 +94,20 @@ module.exports = {
         if ((actualTemp.password === req.body.contrasenia) == false) {
             return res.send({ estado: 'error', mensaje: 'La contraseña no coincide', });
         } else {
-            const usuariosTemp = await Usuario.find({});
+            const usuariosTemp = await Usuario.find({
+                select: ['id', 'name']
+            });
             if (!usuariosTemp) {
                 return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
             }
-            var users = [{ users: {} }];
-            var contador = 0;
             usuariosTemp.forEach(element => {
-                users[0].users[contador] = {
-                    id: element.id, name: element.nombre
-                };
-                contador = contador + 1;
+                console.log(element.id);
+                console.log(element.name);
             });
             return res.send({
                 estado: 'success',
                 actual: actualTemp, 
-                usuarios: users,
+                usuarios: usuariosTemp,
             });
         }
     },
