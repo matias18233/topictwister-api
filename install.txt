@@ -1,0 +1,6 @@
+- git clone https://github.com/matias18233/topictwister-api.git
+- npm install
+- npm install sails-mysql --save
+- En MySQL crear una base de datos con el nombre 'mcruz_ttwister'
+- Configurar el archivo "config/datastore.js" con los datos de conexión a MySQL
+- sails lift
