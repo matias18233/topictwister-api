@@ -107,7 +107,7 @@ module.exports = {
             return res.send({
                 estado: 'success',
                 actual: actualTemp, 
-                usuarios: usuariosTemp,
+                users: usuariosTemp,
             });
         }
     },
@@ -139,7 +139,7 @@ module.exports = {
         }
         return res.send({
             estado: 'success',
-            usuarios: usuariosTemp,
+            users: usuariosTemp,
         });
     }
 };
