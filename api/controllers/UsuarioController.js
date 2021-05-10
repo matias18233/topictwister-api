@@ -129,9 +129,14 @@ module.exports = {
         if (!usuariosTemp) {
             return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
         }
+        var users;
+        usuariosTemp.forEach(element => {
+            users.users.id = element.id;
+            users.users.name = element.nombre;
+        });
         return res.send({
             estado: 'success',
-            usuarios: usuariosTemp,
+            usuarios: users,
         });
     }
 };
