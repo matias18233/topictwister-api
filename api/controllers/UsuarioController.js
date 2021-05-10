@@ -98,10 +98,18 @@ module.exports = {
             if (!usuariosTemp) {
                 return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
             }
+            var users = [{ users: {} }];
+            var contador = 0;
+            usuariosTemp.forEach(element => {
+                users[0].users[contador] = {
+                    id: element.id, name: element.nombre
+                };
+                contador = contador + 1;
+            });
             return res.send({
                 estado: 'success',
                 actual: actualTemp, 
-                usuarios: usuariosTemp,
+                usuarios: users,
             });
         }
     },
@@ -129,10 +137,13 @@ module.exports = {
         if (!usuariosTemp) {
             return res.send({ estado: 'error', mensaje: 'No se encontraron resultados' });
         }
-        var users;
+        var users = [{ users: {} }];
+        var contador = 0;
         usuariosTemp.forEach(element => {
-            users.users.id = element.id;
-            users.users.name = element.nombre;
+            users[0].users[contador] = {
+                id: element.id, name: element.nombre
+            };
+            contador = contador + 1;
         });
         return res.send({
             estado: 'success',
