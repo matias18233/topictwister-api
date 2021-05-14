@@ -13,8 +13,12 @@ Mediante POST, enviar dos variables llamadas ‘nombre’ y ‘contrasenia’; a
 
 Como resultado se obtiene un JSON con los campos ‘estado’, ‘actual’ y ‘users’. El campo ‘actual’ devuelve la información del usuario que ha iniciado sesión, mientras que el campo ‘users’ entrega un listado con toda la información relacionada a todos los usuarios registrados.
 
+```
 INPUTS ->  [ nombre*, contrasenia* ]
+```
+```
 OUTPUTS -> [ estado, actual, users ]
+```
  
 ### Obtener (individual)
  
@@ -28,9 +32,13 @@ http://(host):(port)/api/usuarios/obtener/(número)
 Mediante GET, enviar una variable llamada ‘id’; esta variable es obligatoria para realizar la solicitud.
  
 Como resultado se obtiene un JSON con los campos ‘estado’ y ‘usuario’. Este último campo contiene toda la información relacionada al usuario solicitado.
- 
+
+```
 INPUTS ->  [ id* ]
+```
+```
 OUTPUTS -> [ estado, usuario ]
+```
  
 ### Obtener listado
  
@@ -44,9 +52,13 @@ http://(host):(port)/api/usuarios/obtenerListado
 Mediante GET, hacer la solicitud a la URL para obtener los resultados. No hace falta enviar ningún valor de parámetro.
  
 Como resultado se obtiene un JSON con los campos ‘estado’ y ‘users’. Este último campo contiene un listado con toda la información relacionada a todos los usuarios registrados.
- 
+
+```
 INPUTS ->  [ ]
+```
+```
 OUTPUTS -> [ estado, users ]
+```
  
 ### Agregar
  
@@ -60,9 +72,13 @@ http://(host):(port)/api/usuarios/agregar
 Mediante POST, enviar dos variables llamadas ‘nombre’ y ‘contrasenia’; ambas variables son obligatorios para realizar la solicitud.
  
 Como resultado se obtiene un JSON con los campos ‘estado’, ‘mensaje’ y ‘usuario’. Este último campo contiene toda la información del usuario que se acaba de agregar.
- 
+
+```
 INPUTS ->  [ nombre*, contrasenia* ]
+```
+```
 OUTPUTS -> [ estado, mensaje, usuario ]
+```
  
 ### Editar
  
@@ -76,9 +92,13 @@ http://(host):(port)/api/usuarios/editar
 Mediante POST, enviar tres variables llamadas ‘id’, ‘nombre’ y ‘contrasenia’; todas las variables son obligatorios para realizar la solicitud.
  
 Como resultado se obtiene un JSON con los campos ‘estado’, ‘mensaje’ y ‘usuario’. Este último campo contiene toda la información del usuario que se acaba de modificar.
- 
+
+```
 INPUTS ->  [ id*, nombre*, contrasenia* ]
+```
+```
 OUTPUTS -> [ estado, mensaje, usuario ]
+```
  
 # Partidas
  
@@ -94,9 +114,13 @@ http://(host):(port)/api/partidas/obtener/(número)
 Mediante GET, enviar una variable llamada ‘id’; esta variable es obligatoria para realizar la solicitud.
  
 Como resultado se obtiene un JSON con los campos ‘estado’ y ‘partida’. Este último campo contiene toda la información relacionada al registro de partida. Se deberá parsear el campo ‘cadena’ para poder utilizarlo en Unity.
- 
+
+```
 INPUTS ->  [ id* ]
+```
+```
 OUTPUTS -> [ estado, partida ]
+```
  
 ### Agregar
  
@@ -110,9 +134,13 @@ http://(host):(port)/api/partidas/agregar
 Mediante POST, enviar una variable llamada ‘cadena’; esta variable es obligatoria para realizar la solicitud.
  
 Como resultado se obtiene un JSON con los campos ‘estado’, ‘mensaje’ y ‘partida’. Este último campo contiene toda la información relacionada al registro de partida. Se deberá parsear el campo ‘cadena’ para poder utilizarlo en Unity.
- 
+
+```
 INPUTS ->  [ cadena* ]
+```
+```
 OUTPUTS -> [ estado, mensaje, partida ]
+```
  
 ### Editar
  
@@ -126,6 +154,10 @@ http://(host):(port)/api/partidas/editar
 Mediante POST, enviar dos variables llamadas ‘id’ y ‘cadena’; ambas variables son obligatorias para realizar la solicitud.
  
 Como resultado se obtiene un JSON con los campos ‘estado’, ‘mensaje’ y ‘partida’. Este último campo contiene toda la información relacionada al registro de partida. Se deberá parsear el campo ‘cadena’ para poder utilizarlo en Unity.
- 
+
+```
 INPUTS ->  [ id*, cadena* ]
+```
+```
 OUTPUTS -> [ estado, mensaje, partida ]
+```
